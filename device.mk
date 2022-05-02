@@ -229,7 +229,8 @@ PRODUCT_PACKAGES += \
     init.qti.qcv.sh \
     init.recovery.qcom.rc \
     init.target.rc \
-    ueventd.qcom.rc
+    ueventd.qcom.rc \
+    init.custom.rc
 
 # Display
 PRODUCT_PACKAGES += \
