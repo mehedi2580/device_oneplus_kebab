@@ -38,3 +38,7 @@ debug.hwui.use_buffer_age=false
 
 # Random AOSP props from services/surfaceflinger/SurfaceFlinger.cpp|h
 debug.sf.disable_client_composition_cache=1
+
+# LMKD
+ro.config.low_ram=false
+ro.lmk.log_stats=false
