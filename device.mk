@@ -386,8 +386,13 @@ PRODUCT_PACKAGES += \
 # OMX
 PRODUCT_PACKAGES += \
     init.qti.media.sh \
+    android.hardware.media.omx@1.0 \
     android.hardware.media.omx@1.0-impl \
     android.hardware.media.omx@1.0-service \
+    libplatformconfig \
+    libc2dcolorconvert \
+    libOmxVidcCommon \
+    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -396,6 +401,8 @@ PRODUCT_PACKAGES += \
     libOmxQcelp13Enc \
     libOmxVdec \
     libOmxVenc \
+    libOmxSwVdec \
+    libOmxSwVencMpeg4 \
     libstagefrighthw \
     libstagefright_omx.vendor
 
