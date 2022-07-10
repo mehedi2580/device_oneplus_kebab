@@ -33,7 +33,7 @@ $(call inherit-product, vendor/oneplus/addons/camera/camera-vendor.mk)
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-aosp
+    $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -205,10 +205,6 @@ PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     vendor.qti.hardware.camera.device@1.0.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
-
-# Charge control
-PRODUCT_PACKAGES += \
-    vendor.kscope.chgctrl@1.0-service.oneplus_kona
 
 # Device init scripts
 PRODUCT_PACKAGES += \

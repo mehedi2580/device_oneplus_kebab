@@ -1,0 +1,34 @@
+dontaudit boringssl_self_test self:capability { kill sys_admin };
+dontaudit fsck self:capability { sys_admin };
+dontaudit fsverity_init self:capability { sys_admin };
+dontaudit linkerconfig self:capability { kill sys_admin };
+dontaudit ueventd self:capability { kill sys_admin };
+dontaudit vdc self:capability { sys_admin };
+dontaudit untrusted_app dalvikcache_data_file:file { execmod };
+dontaudit untrusted_app system_lib_file:file { execmod };
+dontaudit untrusted_app proc:file { read };
+dontaudit untrusted_app proc_tty_drivers:file { read };
+dontaudit untrusted_app proc_net_tcp_udp:file { read };
+dontaudit untrusted_app serialno_prop:file { read };
+dontaudit untrusted_app oem_unlock_prop:file { read };
+dontaudit untrusted_app mnt_sdcard_file:lnk_file { read };
+dontaudit untrusted_app self:netlink_route_socket { bind };
+dontaudit system_app wificond:binder { call };
+dontaudit system_app system_suspend_control_service:service_manager find;
+dontaudit system_app tracingproxy_service:service_manager find;
+
+# Apps are no longer allowed rw access to /dev/ashmem, unless they
+# target API level < Q.
+dontaudit untrusted_app ashmem_device:chr_file open;
+
+# please don't kill yourself unless it's allowed
+dontaudit { fsck toolbox vdc zygote } self:capability kill;
+
+# untrusted_app shouldn't be allowed to read SELinux status
+dontaudit untrusted_app_all selinuxfs:file read;
+
+# all other no-context attempt by apps (as spotted on iQIYI)
+dontaudit untrusted_app_all sysfs_net:dir search;
+
+dontaudit untrusted_app proc_loadavg:file { read open };
+dontaudit untrusted_app system_linker_exec:file { execmod };
