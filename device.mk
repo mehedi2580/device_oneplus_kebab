@@ -406,6 +406,10 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     libstagefright_omx.vendor
 
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
+    
 # OnePlus-fwk
 PRODUCT_PACKAGES += \
     oneplus-fwk.oneplus_kona
