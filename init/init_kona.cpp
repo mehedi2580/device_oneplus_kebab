@@ -40,17 +40,50 @@
 
 using android::base::GetProperty;
 
-void property_override(char const prop[], char const value[]) {
-  prop_info *pi;
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "bootimage.",
+    "odm.",
+    "product.",
+    "system.",
+    "system_ext.",
+    "vendor.",
+};
 
-  pi = (prop_info *)__system_property_find(prop);
-  if (pi)
-    __system_property_update(pi, value, strlen(value));
-  else
-    __system_property_add(prop, strlen(prop), value, strlen(value));
+void property_override(char const prop[], char const value[], bool add = true)
+{
+    prop_info *pi;
+
+    pi = (prop_info *) __system_property_find(prop);
+    if (pi)
+        __system_property_update(pi, value, strlen(value));
+    else if (add)
+        __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
+void set_ro_build_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro." + source + "build." + prop;
+        if (source == "")
+            property_override(prop_name.c_str(), value.c_str());
+        else
+            property_override(prop_name.c_str(), value.c_str(), false);
+    }
+};
+
+void set_ro_product_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro.product." + source + prop;
+        property_override(prop_name.c_str(), value.c_str(), false);
+    }
+};
+
 void vendor_load_properties() {
+
+  std::string model;
+  std::string device;
+  std::string name;
+    
   int project_name = stoi(android::base::GetProperty("ro.boot.project_name", ""));
   int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
   switch(project_name){
@@ -59,23 +92,33 @@ void vendor_load_properties() {
       switch (rf_version){
         case 11:
           /* China */
-          property_override("ro.product.model", "KB2000");
+          model = "KB2000";
+          device = "OnePlus8T";
+          name = "OnePlus8T";
           break;
         case 13:
           /* India */
-          property_override("ro.product.model", "KB2001");
+          model = "KB2001";
+          device = "OnePlus8T";
+          name = "OnePlus8T";
           break;
         case 14:
           /* Europe */
-          property_override("ro.product.model", "KB2003");
+          model = "KB2003";
+          device = "OnePlus8T";
+          name = "OnePlus8T";
           break;
         case 15:
           /* Global / US Unlocked */
-          property_override("ro.product.model", "KB2005");
+          model = "KB2005";
+          device = "OnePlus8T";
+          name = "OnePlus8T";
           break;
         default:
           /* Generic */
-          property_override("ro.product.model", "KB2005");
+          model = "KB2005";
+          device = "OnePlus8T";
+          name = "OnePlus8T";
           break;
       }
       break;
@@ -84,11 +127,16 @@ void vendor_load_properties() {
       switch (rf_version){
         case 12:
           /* T-Mobile */
-          property_override("ro.product.model", "KB2007");
+          model = "KB2007";
+          device = "OnePlus8T";
+          name = "OnePlus8T";
           break;
         default:
           /* Generic */
-          property_override("ro.product.model", "KB2005");
+          /* T-Mobile */
+          model = "KB2005";
+          device = "OnePlus8T";
+          name = "OnePlus8T";
           break;
       }
       break;
@@ -97,18 +145,30 @@ void vendor_load_properties() {
       switch (rf_version){
       case 11:
           /* China */
-          property_override("ro.product.model", "LE2100");
+          /* T-Mobile */
+          model = "LE2100";
+          device = "OnePlus9R";
+          name = "OnePlus9R";
           break;
       case 13:
           /* India */
-          property_override("ro.product.model", "LE2101");
+          model = "LE2101";
+          device = "OnePlus9R";
+          name = "OnePlus9R";
           break;
       default:
           /* Generic */
-          property_override("ro.product.model", "LE2101");
+          /* India */
+          model = "LE2101";
+          device = "OnePlus9R";
+          name = "OnePlus9R";
           break;
       }
       break;
   }
-
+  
+  set_ro_product_prop("device", device);
+  set_ro_product_prop("product", device);
+  set_ro_product_prop("model", model);
+  set_ro_product_prop("name", name);
 }
