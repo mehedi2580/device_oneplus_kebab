@@ -28,7 +28,7 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 RICE_MAINTAINER := Lia
 RICE_OFFICIAL := true
 RICE_DEVICE := kebab
-RICE_CHIPSET := SDM870
+RICE_CHIPSET := SDM8705G
 TARGET_HAS_UDFPS := true
 TARGET_ENABLE_BLUR := true
 TARGET_SUPPORTS_QUICK_TAP := true
