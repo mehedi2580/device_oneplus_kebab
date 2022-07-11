@@ -57,4 +57,7 @@
      
     <!-- Whether or not we should show vendor mismatch message -->
     <bool name="config_show_vendor_mismatch_message">false</bool>
+
+   <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash -->
+    <bool name="config_zramWriteback">true</bool>
 </resources>
