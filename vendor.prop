@@ -251,3 +251,5 @@ vendor.usb.use_ffs_mtp=0
 
 # WiFi
 wifi.aware.interface=wifi-aware0
+
+persist.radio.multisim.config=dsds

@@ -131,6 +131,7 @@ void vendor_load_properties() {
           model = "KB2007";
           device = "OnePlus8T";
           name = "OnePlus8T";
+          property_override("persist.radio.multisim.config", "ssss");
           break;
         default:
           /* Generic */
