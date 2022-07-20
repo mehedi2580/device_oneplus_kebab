@@ -76,6 +76,8 @@ dontaudit vendor_wcnss_service rootfs:dir { open read };
 dontaudit untrusted_app app_data_file:lnk_file read;
 dontaudit vendor_init apk_data_file:dir create;
 dontaudit vendor_init init_service_status_prop:property_service { set };
+dontaudit vendor_mdm_helper self:capability sys_admin;
+dontaudit vendor_modprobe self:capability sys_admin;
 
 # facebook
 dontaudit untrusted_app vendor_sysfs_soc:file { read };
