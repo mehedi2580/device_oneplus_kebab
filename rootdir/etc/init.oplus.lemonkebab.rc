@@ -1,4 +1,4 @@
-# init.custom.rc - add init modifications here
+# init.oplus.lemonkebab.rc - add init modifications here
 
 on init
     mkdir /dev/stune/audio-app
