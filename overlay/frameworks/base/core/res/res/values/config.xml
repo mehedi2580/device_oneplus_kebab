@@ -306,6 +306,9 @@
         <item>"/system/lib64/android.hardware.renderscript@1.0.so"</item>
     </string-array>
 
+    <!-- Our amoled doesn't animate well. -->
+    <bool name="config_animateScreenLights">false</bool>
+
     <bool name="config_ui_enableFadingMarquee">false</bool>
     
     <!-- Should the pinner service pin the Home application? -->
