@@ -307,9 +307,6 @@
         <item>"/system/lib64/libRSDriver.so"</item>
         <item>"/system/lib64/libRSCpuRef.so"</item>
         <item>"/system/lib64/libblas.so"</item>
-        <item>"/system/lib64/librs_jni.so"</item>
-        <item>"/system/lib64/libRSCacheDir.so"</item>
-        <item>"/system/lib64/android.hardware.renderscript@1.0.so"</item>
     </string-array>
 
     <!-- Our amoled doesn't animate well. -->
