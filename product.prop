@@ -30,8 +30,3 @@ persist.vendor.qti.telephony.vt_cam_interface=2
 # LMKD
 ro.config.low_ram=false
 ro.lmk.log_stats=false
-
-# ZRAM writeback
-ro.zram.mark_idle_delay_mins=60
-ro.zram.first_wb_delay_mins=1440
-ro.zram.periodic_wb_delay_hours=24
