@@ -48,3 +48,7 @@ vendor.wlan.sniffer.output_dir            u:object_r:vendor_oem_wifi_prop:s0
 vendor.wlan.sniffer.status                u:object_r:vendor_oem_wifi_prop:s0
 vendor.wlan.sniffer.vendor_dir            u:object_r:vendor_oem_wifi_prop:s0
 vendor.wlan.write.con_mode                u:object_r:vendor_set_wlan_prop:s0
+vendor.hw.id.cnversion                    u:object_r:vendor_rild_prop:s0
+odm.ril.radio.status.sim1                 u:object_r:vendor_rild_prop:s0
+odm.ril.radio.status.sim2                 u:object_r:vendor_rild_prop:s0
+vendor.oem.bt.addr                	  u:object_r:vendor_rild_prop:s0

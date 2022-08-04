@@ -19,6 +19,7 @@ dontaudit system_app system_suspend_control_service:service_manager find;
 dontaudit system_app tracingproxy_service:service_manager find;
 dontaudit crash_dump self:capability sys_admin;
 dontaudit netutils_wrapper self:capability sys_admin;
+dontaudit usbd self:capability sys_admin;
 
 # Apps are no longer allowed rw access to /dev/ashmem, unless they
 # target API level < Q.
