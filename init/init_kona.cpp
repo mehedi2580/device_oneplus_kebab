@@ -41,14 +41,14 @@
 using android::base::GetProperty;
 
 std::vector<std::string> ro_props_default_source_order = {
-    "",
-    "vendor_dlkm."
-    "bootimage.",
     "odm.",
     "product.",
     "system.",
     "system_ext.",
     "vendor.",
+    "vendor_dlkm.",
+    "bootimage.",
+    "",
 };
 
 void property_override(char const prop[], char const value[], bool add = true)
@@ -173,4 +173,8 @@ void vendor_load_properties() {
   set_ro_product_prop("product", device);
   set_ro_product_prop("model", model);
   set_ro_product_prop("name", name);
+  set_ro_build_prop("device", device);
+  set_ro_build_prop("product", device);
+  set_ro_build_prop("model", model);
+  set_ro_build_prop("name", name);
 }
