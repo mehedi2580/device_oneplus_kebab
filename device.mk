@@ -484,7 +484,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.0-service.oneplus_kona \
+    android.hardware.sensors@2.1-service.oneplus_kona \
     als_correction_service.oneplus_kona \
     libsensorndkbridge
 
