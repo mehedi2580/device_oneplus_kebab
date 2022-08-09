@@ -18,3 +18,10 @@ ro.com.baidu.input.pad_land_r=19
 ro.com.baidu.input.pad_land_b=10
 
 persist.sys.fw.bg_apps_limit=64
+
+# C2
+debug.c2.use_dmabufheaps=1
+media.c2.dmabuf.padding=512
+debug.stagefright.ccodec_delayed_params=1
+ro.vendor.gpu.dataspace=1
+debug.stagefright.c2inputsurface=-1
