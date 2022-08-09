@@ -96,30 +96,50 @@ void vendor_load_properties() {
           model = "KB2000";
           device = "OnePlus8T";
           name = "OnePlus8T";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "9");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
         case 13:
           /* India */
           model = "KB2001";
           device = "OnePlus8T";
           name = "OnePlus8T";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "9");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
         case 14:
           /* Europe */
           model = "KB2003";
           device = "OnePlus8T";
           name = "OnePlus8T";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "9");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
         case 15:
           /* Global / US Unlocked */
           model = "KB2005";
           device = "OnePlus8T";
           name = "OnePlus8T";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "9");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
         default:
           /* Generic */
           model = "KB2005";
           device = "OnePlus8T";
           name = "OnePlus8T";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "9");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
       }
       break;
@@ -132,6 +152,7 @@ void vendor_load_properties() {
           device = "OnePlus8T";
           name = "OnePlus8T";
           property_override("persist.radio.multisim.config", "ssss");
+          property_override("persist.vendor.dpm.feature", "9");
           break;
         default:
           /* Generic */
@@ -139,6 +160,10 @@ void vendor_load_properties() {
           model = "KB2005";
           device = "OnePlus8T";
           name = "OnePlus8T";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "9");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
       }
       break;
@@ -151,12 +176,20 @@ void vendor_load_properties() {
           model = "LE2100";
           device = "OnePlus9R";
           name = "OnePlus9R";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "11");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
       case 13:
           /* India */
           model = "LE2101";
           device = "OnePlus9R";
           name = "OnePlus9R";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "11");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
       default:
           /* Generic */
@@ -164,6 +197,10 @@ void vendor_load_properties() {
           model = "LE2101";
           device = "OnePlus9R";
           name = "OnePlus9R";
+          property_override("persist.radio.multisim.config", "dsds");
+          property_override("persist.vendor.dpm.feature", "11");
+          property_override("ro.telephony.sim_slots.count", "2");
+          property_override("telephony.active_modems.max_count", "2");
           break;
       }
       break;
