@@ -56,4 +56,6 @@
     <bool name="config_show_vendor_mismatch_message">false</bool>
     
     <bool name="config_supportSystemInfo">true</bool>
+
+    <integer name="config_screen_off_delay">1000</integer>
 </resources>
