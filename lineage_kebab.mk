@@ -25,7 +25,7 @@ $(call inherit-product, device/oneplus/kebab/device.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Rom flags
-RICE_MAINTAINER := Lia
+RICE_MAINTAINER := Chaeyoung
 RICE_OFFICIAL := true
 RICE_DEVICE := kebab
 RICE_CHIPSET := SDM8705G
