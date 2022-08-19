@@ -3,7 +3,7 @@ hal_client_domain(rild, hal_param)
 allow rild vendor_data_file:dir rw_dir_perms;
 allow rild vendor_data_file:file create_file_perms;
 
-allow rild block_device:dir search;
+allow rild block_device:dir r_dir_perms;
 
 allow rild param_block_device:blk_file rw_file_perms;
 

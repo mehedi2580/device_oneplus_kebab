@@ -1,1 +1,1 @@
-allow zygote adsprpcd_file:dir search;
+allow zygote adsprpcd_file:dir r_dir_perms;

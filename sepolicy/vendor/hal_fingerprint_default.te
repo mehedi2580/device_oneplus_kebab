@@ -1,2 +1,2 @@
-allow hal_fingerprint_default mnt_vendor_file:dir search;
-allow hal_fingerprint_default oem_file:dir search;
+allow hal_fingerprint_default mnt_vendor_file:dir r_dir_perms;
+allow hal_fingerprint_default oem_file:dir r_dir_perms;
