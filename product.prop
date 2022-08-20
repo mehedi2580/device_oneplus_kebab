@@ -25,3 +25,8 @@ media.c2.dmabuf.padding=512
 debug.stagefright.ccodec_delayed_params=1
 ro.vendor.gpu.dataspace=1
 debug.stagefright.c2inputsurface=-1
+
+persist.vendor.dpm.feature=9
+persist.radio.multisim.config=dsds
+ro.telephony.sim_slots.count=2
+telephony.active_modems.max_count=2
