@@ -166,4 +166,7 @@ void vendor_load_properties() {
   set_ro_build_prop("product", device);
   set_ro_build_prop("model", model);
   set_ro_build_prop("name", name);
+  property_override("ro.rice.chipset", "Snapdragon 870 5G");
+  property_override("ro.rice.maintainer", "Son Chae-young");
+  property_override("ro.rice.version", "Halo Halo");
 }
