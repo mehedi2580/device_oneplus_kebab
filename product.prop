@@ -63,6 +63,9 @@ persist.sys.appcompact.rss_throttle_kb=12000
 persist.sys.appcompact.delta_rss_throttle_kb=8000
 persist.sys.perf.topAppRenderThreadBoost.enable=false
 
+# Service reschedule
+persist.sys.am.reschedule_service=true
+
 # C2
 debug.c2.use_dmabufheaps=1
 media.c2.dmabuf.padding=512
