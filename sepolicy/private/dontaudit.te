@@ -15,7 +15,14 @@ dontaudit untrusted_app {
   proc_loadavg
   proc_pid_max
   serialno_prop
-  }:{ chr_file lnk_file file } rw_file_perms;
+}:{ chr_file lnk_file file } rw_file_perms;
+
+dontaudit untrusted_app {
+  sysfs_net
+  input_device
+}:dir r_dir_perms;
+
+dontaudit untrusted_app self:netlink_route_socket nlmsg_write;
 
 dontaudit system_app { 
   system_suspend_control_service
