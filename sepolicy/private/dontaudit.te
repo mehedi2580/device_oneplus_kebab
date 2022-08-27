@@ -7,7 +7,6 @@ dontaudit untrusted_app {
   mnt_sdcard_file
   oem_unlock_prop
   proc_net_tcp_udp
-  proc_zoneinfo
   proc_version
   proc_kmsg
   proc_swaps
