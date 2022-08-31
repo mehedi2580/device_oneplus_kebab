@@ -861,11 +861,18 @@ function configure_zram_parameters() {
     fi
 }
 
-function configure_read_ahead_kb_values() {
+function configure_io_values() {
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
 
     dmpts=$(ls /sys/block/*/queue/read_ahead_kb | grep -e dm -e mmc)
+    dmptsnr=$(ls /sys/block/*/queue/nr_requests | grep -e dm -e mmc)
+
+    echo 256 > /sys/block/mmcblk0/bdi/nr_requests
+    echo 256 > /sys/block/mmcblk0rpmb/bdi/nr_requests
+    for dmnr in $dmptsnr; do
+        echo 256 > $dmnr
+    done
 
     # Set 128 for <= 3GB &
     # set 512 for >= 4GB targets.
@@ -889,28 +896,6 @@ function disable_core_ctl() {
         echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
     else
         echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/disable
-    fi
-}
-
-function enable_swap() {
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    SWAP_ENABLE_THRESHOLD=1048576
-    swap_enable=`getprop ro.vendor.qti.config.swap`
-
-    # Enable swap initially only for 1 GB targets
-    if [ "$MemTotal" -le "$SWAP_ENABLE_THRESHOLD" ] && [ "$swap_enable" == "true" ]; then
-        # Static swiftness
-        echo 1 > /proc/sys/vm/swap_ratio_enable
-        echo 70 > /proc/sys/vm/swap_ratio
-
-        # Swap disk - 200MB size
-        if [ ! -f /data/vendor/swap/swapfile ]; then
-            dd if=/dev/zero of=/data/vendor/swap/swapfile bs=1m count=200
-        fi
-        mkswap /data/vendor/swap/swapfile
-        swapon /data/vendor/swap/swapfile -p 32758
     fi
 }
 
@@ -947,7 +932,7 @@ low_ram=`getprop ro.config.low_ram`
 if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$ProductName" == "sdmshrike_au" ]; then
       # Enable ZRAM
       configure_zram_parameters
-      configure_read_ahead_kb_values
+      configure_io_values
       echo 0 > /proc/sys/vm/page-cluster
       echo 100 > /proc/sys/vm/swappiness
 else
@@ -1062,9 +1047,7 @@ else
 
     configure_zram_parameters
 
-    configure_read_ahead_kb_values
-
-    enable_swap
+    configure_io_values
 fi
 }
 
@@ -5710,40 +5693,36 @@ case "$target" in
 
 	# Setting b.L scheduler parameters
 	echo 95 95 > /proc/sys/kernel/sched_upmigrate
-	echo 65 65 > /proc/sys/kernel/sched_downmigrate
-	echo 85 > /proc/sys/kernel/sched_group_upmigrate
-	echo 71 > /proc/sys/kernel/sched_group_downmigrate
+	echo 85 85 > /proc/sys/kernel/sched_downmigrate
+	echo 100 > /proc/sys/kernel/sched_group_upmigrate
+	echo 85 > /proc/sys/kernel/sched_group_downmigrate
 	echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 	echo 400000000 > /proc/sys/kernel/sched_coloc_downmigrate_ns
 
-	# set cpusets for sdm870
-	echo 0-3     > /dev/cpuset/background/cpus
-	echo 0-3     > /dev/cpuset/system-background/cpus
-	echo 0-3     > /dev/cpuset/restricted/cpus
-	echo 3-6     > /dev/cpuset/foreground/boost/cpus
-	echo 0-6 > /dev/cpuset/foreground/cpus
-	echo 0-7     > /dev/cpuset/top-app/cpus
+	# cpuset parameters
+	echo 0-3 > /dev/cpuset/background/cpus
+	echo 0-3 > /dev/cpuset/system-background/cpus
 
 	# Turn off scheduler boost at the end
 	echo 0 > /proc/sys/kernel/sched_boost
 
 	# configure governor settings for silver cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
-	echo 20000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
 	echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
 
 	# configure governor settings for gold cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
-	echo 20000 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
+	echo 1 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
 
 	# configure governor settings for gold+ cluster
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
-	echo 500 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
-	echo 20000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
-	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
+	echo 0 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
+	echo 1 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
 
 	# Enable bus-dcvs
 	for device in /sys/devices/platform/soc
