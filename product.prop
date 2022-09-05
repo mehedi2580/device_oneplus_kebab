@@ -1,3 +1,6 @@
+# Bluetooth
+bluetooth.device.class_of_device=90,2,12
+
 # Camera
 ro.com.google.lens.oem_camera_package=com.oneplus.camera
 
