@@ -5299,8 +5299,6 @@ case "$target" in
 		echo 0-3 > /dev/cpuset/background/cpus
 		echo 0-3 > /dev/cpuset/system-background/cpus
 
-
-
 		# configure governor settings for silver cluster
 		echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 		echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
