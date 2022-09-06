@@ -52,7 +52,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=OnePlus8T \
     TARGET_PRODUCT=OnePlus8T
 
-BUILD_FINGERPRINT := "google/raven/raven:12/SQ3A.220705.004/8836240:user/release-keys"
+BUILD_FINGERPRINT := "google/raven/raven:13/TP1A.220624.021/8877034:user/release-keys"
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="raven-user 12 SQ3A.220705.004 8836240 release-keys"
+    PRIVATE_BUILD_DESC="raven-user 13 TP1A.220624.021 8877034 release-keys"
