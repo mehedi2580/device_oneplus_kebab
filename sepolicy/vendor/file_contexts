@@ -5,26 +5,24 @@
 /(vendor|system/vendor)/bin/vl53l1_daemon_main         u:object_r:vl53l1_daemon_main_exec:s0
 
 # Block devices
-/dev/block/platform/soc/1d84000.ufshc/by-name/config             u:object_r:frp_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/fw_ufs1_[ab]       u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/fw_ufs2_[ab]       u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/logo_[ab]          u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/mdm_oem_dycnvbk    u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/mdm_oem_stanvbk    u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_cust1_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_cust2_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_dycnvbk        u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/oem_stanvbk        u:object_r:vendor_modem_efs_partition_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op1                u:object_r:op1_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/op2                u:object_r:op2_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/opproduct_[ab]     u:object_r:vendor_custom_ab_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/param              u:object_r:param_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/rawdump            u:object_r:vendor_rawdump_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/reserve1           u:object_r:reserve1_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/reserve2           u:object_r:reserve2_block_device:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/spunvm             u:object_r:vendor_efs_boot_dev:s0
-/dev/block/platform/soc/1d84000.ufshc/by-name/storsec_[ab]       u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/config             u:object_r:frp_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/fw_ufs1_[ab]       u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/fw_ufs2_[ab]       u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/logo_[ab]    u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_cust1_[ab]     u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/oem_cust2_[ab]     u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/op1                u:object_r:op1_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/op2                u:object_r:op2_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/opproduct_[ab]     u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/param              u:object_r:param_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/rawdump            u:object_r:vendor_rawdump_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/reserve1           u:object_r:reserve1_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/reserve2           u:object_r:reserve2_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/storsec_[ab]       u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/vbmeta_vendor_[ab]      u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/engineering_cdt_[ab]    u:object_r:vendor_custom_ab_block_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/splash_[ab]             u:object_r:vendor_custom_ab_block_device:s0
+
 
 # Brightness
 /sys/devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm8150l@5:qcom,leds@d300/leds/led:torch_[0-9]/brightness        u:object_r:sysfs_oem:s0
@@ -147,6 +145,13 @@
 # Display Modes
 /sys/devices/platform/soc/ae00000\.qcom\,mdss_mdp/drm/card0/card0-DSI-1/dimlayer_bl_en    u:object_r:sysfs_dm:s0
 /sys/devices/platform/soc/ae00000\.qcom\,mdss_mdp/drm/card0/card0-DSI-1/hbm               u:object_r:sysfs_dm:s0
+
+# MDM
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdm_oem_dycnvbk    u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdm_oem_stanvbk    u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdm1oemnvbktmp     u:object_r:vendor_modem_efs_partition_device:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/mdmddr             u:object_r:vendor_efs_boot_dev:s0
+/dev/block/platform/soc/1d84000\.ufshc/by-name/spunvm    u:object_r:vendor_efs_boot_dev:s0
 
 # HALs
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.oneplus_kona       u:object_r:hal_fingerprint_default_exec:s0
