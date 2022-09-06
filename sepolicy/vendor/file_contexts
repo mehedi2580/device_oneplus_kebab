@@ -127,7 +127,6 @@
 /data/vendor/dolby(/.*)?   u:object_r:vendor_data_file:s0
 
 # Devices
-/dev/byte-cntr            u:object_r:byte_cntr_device:s0
 /dev/cc_ctl               u:object_r:graphics_device:s0
 /dev/dash                 u:object_r:dash_device:s0
 /dev/fragment_monitor     u:object_r:fragment_monitor_device:s0

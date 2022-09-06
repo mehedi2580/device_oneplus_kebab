@@ -14,7 +14,6 @@ type vendor_debugfs_wlan, sysfs_type, fs_type;
 type proc_direct_swappiness, fs_type, proc_type;
 type proc_swappiness, fs_type, proc_type;
 type proc_touchpanel, fs_type, proc_type;
-type proc_watermark_boost_factor, fs_type, proc_type;
 
 # sysfs
 type sysfs_dash_charger, fs_type, proc_type, sysfs_type;
