@@ -159,8 +159,10 @@
       "Name": "TAUclampBoost",
       "Path": "/dev/cpuset/top-app/uclamp.min",
       "Values": [
-        "300",
-        "100"
+        "410",
+        "308",
+        "205",
+        "103"
       ],
       "ResetOnInit": true
     },
@@ -372,8 +374,8 @@
     {
       "PowerHint": "INTERACTION",
       "Node": "TAUclampBoost",
-      "Duration": 1000,
-      "Value": "300"
+      "Duration": 6000,
+      "Value": "410"
     },
     {
       "PowerHint": "INTERACTION",
@@ -434,6 +436,12 @@
       "Node": "CPULittleClusterMinFreq",
       "Duration": 5000,
       "Value": "9999999"
+    },
+    {
+      "PowerHint": "LAUNCH",
+      "Node": "TAUClampBoost",
+      "Duration": 5000,
+      "Value": "308"
     },
     {
       "PowerHint": "LAUNCH",
@@ -757,7 +765,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "1"
+      "Value": "4"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
