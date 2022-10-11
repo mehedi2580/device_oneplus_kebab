@@ -156,7 +156,7 @@
       "ResetOnInit": true
     },
     {
-      "Name": "TAUclampBoost",
+      "Name": "TAUClampBoost",
       "Path": "/dev/cpuset/top-app/uclamp.min",
       "Values": [
         "410",
@@ -373,7 +373,7 @@
     },
     {
       "PowerHint": "INTERACTION",
-      "Node": "TAUclampBoost",
+      "Node": "TAUClampBoost",
       "Duration": 6000,
       "Value": "410"
     },
