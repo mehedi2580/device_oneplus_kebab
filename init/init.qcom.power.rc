@@ -93,13 +93,6 @@ on early-init
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 0
 
 on init
-    # Setup permission for Power HAL
-    chown system system /dev/cpuset/top-app/uclamp.min
-    chown system system /dev/cpu_dma_latency
-
-    chmod 0664 /dev/cpuset/top-app/uclamp.min
-    chmod 0664 /dev/cpu_dma_latency
-
     # Boot time cpuset and cpuset
     write /dev/cpuset/top-app/cpus 0-7
     write /dev/cpuset/foreground/cpus 0-7
